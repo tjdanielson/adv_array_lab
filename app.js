@@ -215,10 +215,14 @@ function cuisineTypes(){
     let mappedCuisines = dishes.map(function(dish){
         return dish.cuisine;
     })
-    return mappedCuisines
+    return mappedCuisines.filter(function(cuisine,i){
+        if(mappedCuisines.indexOf(cuisine) == i){
+            return true;
+        }
+    })
 }
 
-//console.log(cuisineTypes());
+console.log(cuisineTypes());
 
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map 
@@ -252,7 +256,7 @@ function determineVegetarian(cuisine){
     }
 }
 
-console.log(findFoodAndType(determineVegetarian));
+//console.log(findFoodAndType(determineVegetarian));
 
 
 //BONUS
