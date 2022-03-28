@@ -275,5 +275,14 @@ function findChickpea(ingredients){
 //10. Create a function that will return the total serving count of all dishes.
 //Must use Reduce, not a loop.
 
+function getTotalServings(){
+    let sum = dishes.reduce(function(total, dish){
+        return total + dish.servings;
+    }, 0)
+    return sum;
+}
+
+//console.log(getTotalServings());
+
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
 
