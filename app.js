@@ -222,7 +222,7 @@ function cuisineTypes(){
     })
 }
 
-console.log(cuisineTypes());
+//console.log(cuisineTypes());
 
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map 
@@ -263,6 +263,14 @@ function determineVegetarian(cuisine){
 //9. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
 //Filter
+
+function findChickpea(ingredients){
+    if(ingredients.includes("chickpea")){
+        return true;
+    }
+}
+
+//console.log(foodFinder(findChickpea))
 
 //10. Create a function that will return the total serving count of all dishes.
 //Must use Reduce, not a loop.
