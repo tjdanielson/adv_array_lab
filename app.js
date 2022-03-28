@@ -189,7 +189,7 @@ function findEven(num){
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
 
-function tomatoAndCheese(callback){
+function foodFinder(callback){
     let results = dishes.filter(function(dish){
         if(callback(dish.ingredients)){
             return true;
@@ -204,18 +204,55 @@ function findTomatoAndCheese(ingredients){
     }
 }
 
-console.log(tomatoAndCheese(findTomatoAndCheese));
+//console.log(foodFinder(findTomatoAndCheese));
 
 //6a. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
 // BONUS: (come back to this after finishing all)
 //6b. Use the filter method to eliminate duplicates, leaving only distinct values in the array
 
+function cuisineTypes(){
+    let mappedCuisines = dishes.map(function(dish){
+        return dish.cuisine;
+    })
+    return mappedCuisines
+}
+
+//console.log(cuisineTypes());
+
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map 
 
+function updateNames(){
+    let newNames = dishes.map(function(dish){
+        return `${dish.cuisine} ${dish.name}`
+    })
+    return newNames;
+}
+
+//console.log(updateNames());
+
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. So this function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
+
+function findFoodAndType(callback){
+    let vegetarianMeals = dishes.filter(function(dish){
+        if (callback(dish.cuisine)){
+            return true;
+        }
+    }).map(function(dish){
+        return `${dish.cuisine} ${dish.name}`
+    })
+    return vegetarianMeals;
+}
+
+function determineVegetarian(cuisine){
+    if(cuisine == "Vegetarian"){
+        return true;
+    }
+}
+
+console.log(findFoodAndType(determineVegetarian));
 
 
 //BONUS
