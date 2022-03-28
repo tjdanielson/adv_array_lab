@@ -183,11 +183,28 @@ function findEven(num){
     }
 }
 
-let evenServings = evenServingCounts(findEven)
-console.log(evenServings)
+// let evenServings = evenServingCounts(findEven)
+// console.log(evenServings)
 
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
+
+function tomatoAndCheese(callback){
+    let results = dishes.filter(function(dish){
+        if(callback(dish.ingredients)){
+            return true;
+        }
+    })
+    return results;
+}
+
+function findTomatoAndCheese(ingredients){
+    if(ingredients.includes("tomato") && ingredients.includes("cheese")){
+        return true;
+    }
+}
+
+console.log(tomatoAndCheese(findTomatoAndCheese));
 
 //6a. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
