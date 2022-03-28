@@ -286,3 +286,27 @@ function getTotalServings(){
 
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
 
+
+function getUniqueCuisineMeals(callback){
+    let filteredCuisines = callback()
+    results = dishes.filter(function(dish){
+        if(filteredCuisines.includes(dish.cuisine)){
+            return true;
+        }
+    })
+    return results
+}
+
+function getUniqueCuisines(){
+    let cuisines = dishes.map(function(dish){
+        return dish.cuisine;
+    })
+    let filteredCuisines = cuisines.filter(function(cuisine){
+        if(cuisines.indexOf(cuisine) == cuisines.lastIndexOf(cuisine)){
+            return true;
+        }
+    })
+    return filteredCuisines
+}
+
+console.log(getUniqueCuisineMeals(getUniqueCuisines))
